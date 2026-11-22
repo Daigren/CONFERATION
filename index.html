@@ -9,6 +9,16 @@
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f4bd8'/%3E%3Cpath d='M21 11.5a7 7 0 1 0 0 9' stroke='white' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"
     />
     <title>Conferation</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('conferation-theme') || localStorage.getItem('theme');
+          var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored === 'dark' || stored === 'light' ? stored : (systemDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
